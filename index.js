@@ -10,6 +10,14 @@ const AlanisBot = new App({
 });
 
 const IRONY_REGEXP = /(irony|ironic|alanis)/ig;
+const ROLLCALL_REGEXP = /(rollcall|roll call)/ig;
+
+const checkForRollcall = (text) => {
+	if (text) {
+		return ROLLCALL_REGEXP.test(text);
+	}
+	return false;
+};
 
 const checkForIrony = (text) => {
 	if (text) {
@@ -25,7 +33,11 @@ const getResponse = (type) => {
 };
 
 AlanisBot.message(async ({ message, say }) => {
-	if (checkForIrony(message.text)) {
+	if (checkForRollcall(message.text)) {
+		const rollcallResponse = getResponse('rollcall');
+		await say(rollcallResponse);
+	}
+	else if (checkForIrony(message.text)) {
 		// console.log('found IRONY');
 		const alanisResponse = getResponse('irony');
 		await say(alanisResponse);
