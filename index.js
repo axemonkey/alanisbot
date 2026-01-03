@@ -34,7 +34,7 @@ const getResponse = (type) => {
 
 AlanisBot.message(async ({ message, say }) => {
 	if (checkForRollcall(message.text)) {
-		const rollcallResponse = getResponse('rollcall');
+		const rollcallResponse = getResponse('irony');
 		await say(rollcallResponse);
 	}
 	else if (checkForIrony(message.text)) {

@@ -11,22 +11,13 @@ const ironyResponse = [
   'It’s meeting the man of my dreams and then meeting his beautiful wife.',
 ];
 
-const rollcallResponse = [
-  'I’ve got one hand in my pocket',
-];
-
 const responses = {
   ironyResponse,
-  rollcallResponse,
 };
 
 function buildResponses() {
   const allResponses = [];
 
-  allResponses.rollcall = [];
-  responses.rollcallResponse.forEach((rollcallResp) => {
-    allResponses.rollcall.push(rollcallResp);
-  });
   allResponses.irony = [];
   responses.ironyResponse.forEach((ironyResp) => {
     allResponses.irony.push(ironyResp);
